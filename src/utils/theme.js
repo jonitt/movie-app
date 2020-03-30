@@ -10,20 +10,28 @@ export const theme = createMuiTheme({
   typography: {
     fontFamily: ['Arial'].join(','),
     h2: {
-      fontSize: '2.5rem',
-      color: 'white',
+      color: '#fafafa',
+      fontSize: '2.6rem',
+    },
+    h3: {
+      color: '#fafafa',
+      fontWeight: '600',
+      fontSize: '1.7rem',
     },
     body1: {
-      color: 'white',
+      color: '#fafafa',
       fontSize: '1.5rem',
     },
     body2: {
-      color: 'white',
+      color: '#fafafa',
       fontSize: '1.8rem',
+    },
+    caption: {
+      color: '#d9d9d9',
+      fontSize: '1.5rem',
     },
     button: {
       fontWeight: '600',
-      color: 'black',
       fontSize: '1.5rem',
     },
   },
