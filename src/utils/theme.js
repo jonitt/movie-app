@@ -12,6 +12,7 @@ export const theme = createMuiTheme({
     h2: {
       color: '#fafafa',
       fontSize: '2.6rem',
+      fontWeight: '500',
     },
     h3: {
       color: '#fafafa',

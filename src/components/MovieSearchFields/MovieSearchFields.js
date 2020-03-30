@@ -28,6 +28,8 @@ const StyledInput = withStyles({
 const StyledButton = withStyles({
   root: {
     marginTop: '20px',
+    paddingLeft: '10px',
+    paddingRight: '10px'
   },
   disabled: {
     color: '#006064 !important',
@@ -40,7 +42,7 @@ class MovieSearchFields extends Component {
       <div className={styles.root}>
         <div>
           <Grid container direction='row' style={{ height: '100%' }}>
-            <Grid xs={10} item container direction='column'>
+            <Grid xs={9} md={10} item container direction='column'>
               <Grid item>
                 <StyledInput placeholder='Movie name' fullWidth={true} />
               </Grid>
@@ -55,7 +57,8 @@ class MovieSearchFields extends Component {
             <Grid
               item
               container
-              xs={2}
+              xs={3}
+              md={2}
               alignItems='center'
               justify='center'
               style={{ minHeight: '100%' }}
