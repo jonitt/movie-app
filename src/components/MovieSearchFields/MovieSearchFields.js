@@ -29,7 +29,7 @@ const StyledButton = withStyles({
   root: {
     marginTop: '20px',
     paddingLeft: '10px',
-    paddingRight: '10px'
+    paddingRight: '10px',
   },
   disabled: {
     color: '#006064 !important',
@@ -37,6 +37,14 @@ const StyledButton = withStyles({
 })(Button);
 
 class MovieSearchFields extends Component {
+  state = {
+    yearError: '',
+  };
+
+  validateYearInput = e => {};
+
+  submitSearch = e => {};
+
   render() {
     return (
       <div className={styles.root}>
@@ -44,10 +52,17 @@ class MovieSearchFields extends Component {
           <Grid container direction='row' style={{ height: '100%' }}>
             <Grid xs={9} md={10} item container direction='column'>
               <Grid item>
-                <StyledInput placeholder='Movie name' fullWidth={true} />
+                <StyledInput
+                  inputRef='movie-name'
+                  placeholder='Movie name'
+                  fullWidth={true}
+                />
               </Grid>
               <Grid item>
                 <StyledInput
+                  inputRef='movie-year'
+                  error={this.state.yearError}
+                  onChange={this.validateYearInput}
                   placeholder='Release year (optional)'
                   fullWidth={true}
                   style={{ marginTop: '12px' }}
@@ -64,7 +79,7 @@ class MovieSearchFields extends Component {
               style={{ minHeight: '100%' }}
             >
               <Grid item>
-                <StyledButton color='primary' >
+                <StyledButton color='primary' onClick={this.submitSearch}>
                   Search
                 </StyledButton>
               </Grid>
