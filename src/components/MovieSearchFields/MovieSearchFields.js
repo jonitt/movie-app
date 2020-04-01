@@ -7,6 +7,7 @@ import {
   Button,
   Grid,
   Divider,
+  Typography,
 } from '@material-ui/core';
 import { theme } from '../../utils/theme';
 
@@ -38,14 +39,28 @@ const StyledButton = withStyles({
 
 class MovieSearchFields extends Component {
   state = {
+    titleValue: '',
+    yearValue: '',
     yearError: '',
   };
 
-  validateYearInput = e => {};
+  validateYearInput = e => {
+    const { yearError } = this.state;
+    let err = '';
+    console.log(e.target.value);
+    if (isNaN(e.target.value) && !yearError) {
+      err = 'Please input a valid year, e.g. 1993';
+    }
+    this.setState({ yearError: err, yearValue: e.target.value });
+  };
 
-  submitSearch = e => {};
+  submitSearch = e => {
+    const { yearValue, titleValue } = this.state;
+    console.log(yearValue, titleValue);
+  };
 
   render() {
+    const { yearError } = this.state;
     return (
       <div className={styles.root}>
         <div>
@@ -53,20 +68,26 @@ class MovieSearchFields extends Component {
             <Grid xs={9} md={10} item container direction='column'>
               <Grid item>
                 <StyledInput
-                  inputRef='movie-name'
+                  onChange={e => this.setState({ titleValue: e.target.value })}
                   placeholder='Movie name'
                   fullWidth={true}
+                  inputProps={{ maxLength: 120 }}
                 />
               </Grid>
               <Grid item>
                 <StyledInput
-                  inputRef='movie-year'
-                  error={this.state.yearError}
+                  error={!!this.state.yearError}
                   onChange={this.validateYearInput}
                   placeholder='Release year (optional)'
                   fullWidth={true}
                   style={{ marginTop: '12px' }}
+                  inputProps={{ maxLength: 4 }}
                 />
+                {yearError ? (
+                  <Typography variant='subtitle2' style={{ marginTop: '5px' }}>
+                    {yearError}
+                  </Typography>
+                ) : null}
               </Grid>
             </Grid>
             <Grid
@@ -79,7 +100,10 @@ class MovieSearchFields extends Component {
               style={{ minHeight: '100%' }}
             >
               <Grid item>
-                <StyledButton color='primary' onClick={this.submitSearch}>
+                <StyledButton
+                  color='primary'
+                  onClick={() => this.submitSearch()}
+                >
                   Search
                 </StyledButton>
               </Grid>
