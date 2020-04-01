@@ -48,22 +48,24 @@ class MovieSearchFields extends Component {
     const { yearError } = this.state;
     let err = '';
     console.log(e.target.value);
-    if (isNaN(e.target.value) && !yearError) {
+    if (isNaN(e.target.value)) {
       err = 'Please input a valid year, e.g. 1993';
     }
     this.setState({ yearError: err, yearValue: e.target.value });
   };
 
-  submitSearch = e => {
+  submitSearch = (e) => {
     const { yearValue, titleValue } = this.state;
+    e.preventDefault();
     console.log(yearValue, titleValue);
+    this.props.fetchMovie(titleValue, yearValue);
   };
 
   render() {
-    const { yearError } = this.state;
+    const { yearError, titleValue } = this.state;
     return (
       <div className={styles.root}>
-        <div>
+        <form onSubmit={(e) => this.submitSearch(e)}>
           <Grid container direction='row' style={{ height: '100%' }}>
             <Grid xs={9} md={10} item container direction='column'>
               <Grid item>
@@ -101,15 +103,16 @@ class MovieSearchFields extends Component {
             >
               <Grid item>
                 <StyledButton
+                  disabled={!titleValue}
                   color='primary'
-                  onClick={() => this.submitSearch()}
+                  type='submit'
                 >
                   Search
                 </StyledButton>
               </Grid>
             </Grid>
           </Grid>
-        </div>
+        </form>
         <Divider
           light={true}
           style={{

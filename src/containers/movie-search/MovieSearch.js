@@ -5,16 +5,23 @@ import MovieSearchResult from '../../components/MovieSearchResult/MovieSearchRes
 import * as moviesApi from '../../api/movies';
 
 class MovieSearch extends Component {
+  state = { movie: null };
+
   fetchMovie(title, year) {
-    moviesApi.fetchMovie(title, year).then(r => console.log(r));
+    const movie = moviesApi.fetchMovie(title, year).then(r => {
+      console.log(r);
+
+      this.setState({ movie: r });
+      return r;
+    });
   }
 
   render() {
-    this.fetchMovie();
+    const { movie } = this.state;
     return (
       <div className={styles.root}>
-        <MovieSearchFields fetchMovie={this.fetchMovie} />
-        <MovieSearchResult />
+        <MovieSearchFields fetchMovie={(t, y) => this.fetchMovie(t, y)} />
+        <MovieSearchResult movie={movie} />
       </div>
     );
   }
