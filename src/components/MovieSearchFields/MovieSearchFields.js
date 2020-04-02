@@ -28,9 +28,10 @@ const StyledInput = withStyles({
 
 const StyledButton = withStyles({
   root: {
-    marginTop: '20px',
-    paddingLeft: '10px',
-    paddingRight: '10px',
+    paddingTop: '20px',
+    paddingBottom: '10px',
+    paddingLeft: '30px',
+    paddingRight: '30px',
   },
   disabled: {
     color: '#006064 !important',
@@ -54,7 +55,7 @@ class MovieSearchFields extends Component {
     this.setState({ yearError: err, yearValue: e.target.value });
   };
 
-  submitSearch = (e) => {
+  submitSearch = e => {
     const { yearValue, titleValue } = this.state;
     e.preventDefault();
     console.log(yearValue, titleValue);
@@ -65,7 +66,7 @@ class MovieSearchFields extends Component {
     const { yearError, titleValue } = this.state;
     return (
       <div className={styles.root}>
-        <form onSubmit={(e) => this.submitSearch(e)}>
+        <form onSubmit={e => this.submitSearch(e)}>
           <Grid container direction='row' style={{ height: '100%' }}>
             <Grid xs={9} md={10} item container direction='column'>
               <Grid item>

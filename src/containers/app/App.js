@@ -6,6 +6,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { theme } from '../../utils/theme';
 import styles from './App.module.css';
 import MovieSearch from '../movie-search/MovieSearch';
+import { Typography } from '@material-ui/core';
 
 class App extends Component {
   render() {
@@ -13,6 +14,13 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <div className={styles.app}>
           <MovieSearch />
+        </div>
+        <div className={styles.footer}>
+          <Typography variant='subtitle1'>
+          Joni Tuhkanen
+          <br />
+          joni.tuhkanen@protonmail.com
+          </Typography>
         </div>
       </ThemeProvider>
     );
