@@ -3,10 +3,11 @@
 
 import React, { Component } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
+import { Typography } from '@material-ui/core';
 import { theme } from '../../utils/theme';
 import styles from './App.module.css';
 import MovieSearch from '../movie-search/MovieSearch';
-import { Typography } from '@material-ui/core';
+import Footer from '../../components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -15,13 +16,7 @@ class App extends Component {
         <div className={styles.app}>
           <MovieSearch />
         </div>
-        <div className={styles.footer}>
-          <Typography variant='subtitle1'>
-          Joni Tuhkanen
-          <br />
-          joni.tuhkanen@protonmail.com
-          </Typography>
-        </div>
+        <Footer />
       </ThemeProvider>
     );
   }

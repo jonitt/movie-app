@@ -32,8 +32,8 @@ export const theme = createMuiTheme({
       fontSize: '1.5rem',
     },
     subtitle1: {
-      color: '#c2c2c2',
-      fontSize: '1.5rem',
+      color: '#6C6C6C',
+      fontSize: '1.3rem',
     },
     // this one is used for red error text
     subtitle2: { 
