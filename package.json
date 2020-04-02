@@ -12,7 +12,8 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "@babel/plugin-proposal-class-properties": "^7.8.3"
   },
   "scripts": {
     "start": "npm install -g serve && serve -s build",
@@ -34,8 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.8.3"
   }
 }
