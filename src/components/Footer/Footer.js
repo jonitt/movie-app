@@ -2,7 +2,7 @@
 //this is the main app
 
 import React, { Component } from 'react';
-import styles from './Footer.module.css';
+import styles from './Footer.css';
 import { Typography } from '@material-ui/core';
 
 class App extends Component {

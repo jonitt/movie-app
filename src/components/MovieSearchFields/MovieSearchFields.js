@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './MovieSearchFields.module.css';
+import styles from './MovieSearchFields.css';
 import {
   TextField,
   Input,

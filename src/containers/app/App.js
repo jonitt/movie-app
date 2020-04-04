@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import { theme } from '../../utils/theme';
-import styles from './App.module.css';
+import styles from './App.css';
 import MovieSearch from '../movie-search/MovieSearch';
 import Footer from '../../components/Footer/Footer';
 

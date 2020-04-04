@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './MovieSearchResult.module.css';
+import styles from './MovieSearchResult.css';
 import { Typography } from '@material-ui/core';
 
 class MovieSearchResult extends Component {

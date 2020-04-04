@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './MovieSearch.module.css';
+import styles from './MovieSearch.css';
 import MovieSearchFields from '../../components/MovieSearchFields/MovieSearchFields';
 import MovieSearchResult from '../../components/MovieSearchResult/MovieSearchResult';
 import * as moviesApi from '../../api/movies';
